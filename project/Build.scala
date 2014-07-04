@@ -21,7 +21,10 @@ object HelloBuild extends Build {
                           )
 
     lazy val foo = Project(id = "hello-foo",
-                           base = file("foo")
+                           base = file("foo"),
+                           settings = Project.defaultSettings ++ Seq(
+                             version := "0.7",
+                             scalaVersion := "2.11.1")
                           ) dependsOn(bar)
 
 }
