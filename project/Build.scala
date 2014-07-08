@@ -14,17 +14,18 @@ object HelloBuild extends Build {
     lazy val root = Project(id = "hello",
                             base = file("."),
                             settings = Project.defaultSettings ++ Seq(sampleKeyB := "B: in the root project settings in Build.scala")
-                           ) aggregate(foo, bar)
+                           ) aggregate(foo, bar) dependsOn(foo)
 
     lazy val bar = Project(id = "hello-bar",
                            base = file("bar")
-                          ) dependsOn(root)
+                          ) /* dependsOn(root) */
 
     lazy val foo = Project(id = "hello-foo",
-                           base = file("foo"),
-                           settings = Project.defaultSettings ++ Seq(
-                             version := "0.7",
-                             scalaVersion := "2.11.1")
+                           base = file("foo")
+                           //,
+                           //settings = Project.defaultSettings ++ Seq(
+                           //  version := "0.7",
+                           //  scalaVersion := "2.11.1")
                           ) dependsOn(bar)
 
 }

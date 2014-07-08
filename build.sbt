@@ -12,3 +12,5 @@ sampleKeyD := "D: in build.sbt"
 libraryDependencies ++= Seq(
   "org.scala-tools.time" % "time_2.9.1" % "0.5"
 )
+
+mainClass in (Compile, run) := Some("FooHi")

@@ -1,3 +1,5 @@
+import org.scala_tools.time.Imports._
+import DateTime.now
 
 object FooHi {
   def say() = {new BarHi("Bar").say()
@@ -5,7 +7,7 @@ object FooHi {
               }
 
   def main(args: Array[String]) = {
-    println("Hi! Hello, World!!")
+    println("Hi! Hello, World! foo!! " + (now + 6.month))
     say()
   }
 }
